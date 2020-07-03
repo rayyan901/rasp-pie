@@ -2,6 +2,10 @@
 import RPi.GPIO as GPIO
 import time
 
+#===
+switchPos = 2
+restPos = 7
+#===
 # Set GPIO numbering mode
 GPIO.setmode(GPIO.BOARD)
 #GPIO.cleanup()
@@ -14,13 +18,14 @@ servo1.start(0)
 print ('Waiting for 2 seconds')
 time.sleep(1)
  
-servo1.ChangeDutyCycle(2)  #servo go to switch pos
+servo1.ChangeDutyCycle(switchPos)  #servo go to switch pos
 time.sleep(1)
-servo1.ChangeDutyCycle(7)  #servo go to rest pos
+servo1.ChangeDutyCycle(restPos)  #servo go to rest pos
 time.sleep(0.5)
 servo1.ChangeDutyCycle(0)
 time.sleep(1)
 #==============================
+
 #set GPIO Pins
 GPIO_TRIGGER = 10 #GPIO15
 GPIO_ECHO = 12 #GPIO18
@@ -64,9 +69,9 @@ if __name__ == '__main__':
             print ("Measured Distance = %.1f cm" % dist)
             
             if dist <= 13:
-                servo1.ChangeDutyCycle(2)  #servo go to switch pos 
+                servo1.ChangeDutyCycle(switchPos)  #servo go to switch pos 
                 time.sleep(1)
-                servo1.ChangeDutyCycle(7)  #servo go to rest pos
+                servo1.ChangeDutyCycle(restPos)  #servo go to rest pos
                 time.sleep(0.5)
                 servo1.ChangeDutyCycle(0)
                 time.sleep(1) 
