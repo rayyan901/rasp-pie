@@ -5,9 +5,9 @@ import time
 # Set GPIO numbering mode
 GPIO.setmode(GPIO.BOARD)
 #GPIO.cleanup()
-# Set pin 11 as an output, and set servo1 as pin 11 as PWM
-GPIO.setup(11,GPIO.OUT)
-servo1 = GPIO.PWM(11,50) # Note 11 is pin, 50 = 50Hz pulse
+# Set pin 8/gpio14 as an output, and set servo1 as pin 8 as PWM
+GPIO.setup(8,GPIO.OUT)
+servo1 = GPIO.PWM(8,50) # Note 11 is pin, 50 = 50Hz pulse
 
 #start servo=========================
 servo1.start(0)
@@ -22,8 +22,8 @@ servo1.ChangeDutyCycle(0)
 time.sleep(1)
 #==============================
 #set GPIO Pins
-GPIO_TRIGGER = 12 #GPIO18
-GPIO_ECHO = 18 #GPIO24
+GPIO_TRIGGER = 10 #GPIO15
+GPIO_ECHO = 12 #GPIO18
  
 #set GPIO direction (IN / OUT)
 GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
