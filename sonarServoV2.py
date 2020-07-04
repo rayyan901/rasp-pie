@@ -5,6 +5,7 @@ import time
 #===
 switchPos = 2
 restPos = 7
+timeout=0.03
 #===
 # Set GPIO numbering mode
 GPIO.setmode(GPIO.BOARD)
@@ -47,7 +48,7 @@ def distance():
     
     stayzero=0
     # save StartTime
-    while GPIO.input(GPIO_ECHO) == 0 and stayzero<1:
+    while GPIO.input(GPIO_ECHO) == 0 and stayzero<timeout:
         stayzero = StartTime-mulaTime
         StartTime = time.time()
  
