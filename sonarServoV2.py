@@ -73,7 +73,7 @@ if __name__ == '__main__':
             dist = distance()
             print ("Measured Distance = %.1f cm" % dist)
             
-            if dist <= 13:
+            if dist <= 13 and dist > 0:
                 servo1.ChangeDutyCycle(switchPos)  #servo go to switch pos 
                 time.sleep(1)
                 servo1.ChangeDutyCycle(restPos)  #servo go to rest pos
